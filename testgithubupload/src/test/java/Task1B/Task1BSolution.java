@@ -36,12 +36,12 @@ public class Task1BSolution {
 		Thread.sleep(2000);
 		WebElement email = driver.findElement(By.name("reg_email__"));
 		email.click();
-		email.sendKeys("nrlhchow@gmail.com");
+		email.sendKeys("abcdef@gmail.com");
 		
 		Thread.sleep(2000);
 		WebElement confirm_email = driver.findElement(By.name("reg_email_confirmation__"));
 		confirm_email.click();
-		confirm_email.sendKeys("nrlhchow@gmail.com");
+		confirm_email.sendKeys("abcdef@gmail.com");
 		
 		Thread.sleep(2000);
 		WebElement password = driver.findElement(By.name("reg_passwd__"));
@@ -62,6 +62,35 @@ public class Task1BSolution {
 		WebElement all_years = driver.findElement(By.name("birthday_year"));
 		Select year = new Select(all_years);
 		year.selectByValue("1992");
+		
+		Thread.sleep(2000);
+		WebElement gender = driver.findElement(By.xpath("(/html/body/div/div/div/div/div/div/div/div/form/div/div/span/span/input)[2]"));
+		gender.click();
+		
+		Thread.sleep(2000);
+		WebElement submit = driver.findElement(By.xpath("(//button[@type='submit'])[2]"));
+		submit.click();
+		
+		Thread.sleep(2000);
+		driver.navigate().back();
+		
+		Thread.sleep(2000);
+		String session_ID =  driver.getWindowHandle();
+		System.out.println(session_ID);
+		
+		driver.navigate().refresh();
+		
+		Thread.sleep(2000);
+		String title = driver.getTitle();
+		System.out.println(title);
+		
+		Thread.sleep(2000);
+		driver.navigate().forward();
+		
+		driver.quit();
+		
+		
+		
 
 	}
 
