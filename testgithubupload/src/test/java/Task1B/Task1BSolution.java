@@ -63,6 +63,30 @@ public class Task1BSolution {
 		Select year = new Select(all_years);
 		year.selectByValue("1992");
 
+		WebElement gender_male = driver.findElement(By.xpath("(/html/body/div/div/div/div/div/div/div/div/form/div/div/span/span/input)[2]"));
+		gender_male.click();
+		
+		Thread.sleep(2000);
+		WebElement signupbtn = driver.findElement(By.xpath("//button[text()='Sign Up' and @name='websubmit']"));
+		signupbtn.click();
+		
+		Thread.sleep(2000);
+		driver.navigate().back();
+		
+		String session_id = driver.getWindowHandle();
+		System.out.println(session_id);
+		
+		driver.navigate().refresh();
+		
+		Thread.sleep(2000);
+		String page_title=driver.getTitle();
+		System.out.println(page_title);
+		
+		Thread.sleep(2000);
+		driver.navigate().forward();
+		
+		driver.close();
+
 	}
 
 }
